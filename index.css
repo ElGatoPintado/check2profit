@@ -16,6 +16,7 @@
 }
 
 .check-list__list {
+  padding: 0;
   display: grid;
   width: 100%;
   grid-template-columns: repeat(3, 1fr);
@@ -49,4 +50,50 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 896px) {
+  .root {
+    max-width: 800px;
+  }
+
+  .check-list__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .root {
+    max-width: 540px;
+  }
+
+  .check-list__list {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+    row-gap: 36px;
+    margin-top: 36px;
+  }
+
+  .check-list__element {
+    width: 240px;
+    height: 80px;
+    background-color: var(--button-color);
+    border-radius: 5px;
+  }
+
+  .check-list__button {
+    padding: 24px;
+
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .check-lists__container {
+    margin-top: 36px;
+  }
+}
+
+@media screen and (max-width: 448px) {
+  .root {
+    max-width: 440px;
+  }
 }
