@@ -79,7 +79,7 @@
               <p class="check-list__comment">11:00 - 23:00</p></a
             >
           </li>
-          <li class="check-list__element">
+          <!-- <li class="check-list__element">
             <a
               href="https://forms.gle/gTsF3PTjTuaUxdA38"
               class="check-list__button"
@@ -87,9 +87,445 @@
               ><h2 class="check-list__title">Грубые нарушения</h2>
               <p class="check-list__comment">11:00 - 23:00</p></a
             >
+          </li> -->
+          <li class="check-list__element">
+            <button
+              class="check-list__button violations__open-button"
+              id="violations-open-button"
+            >
+              <h2 class="check-list__title">Грубые нарушения</h2>
+            </button>
           </li>
         </ul>
       </div>
+      <div class="violations">
+        <div id="violations__modal" class="violations__modal">
+          <!-- Контент модального окна -->
+          <div class="violations__container">
+            <!-- Кнопка закрытия -->
+            <span class="violations__close-button">&times;</span>
+            <form name="violations" id="violations" class="violations__form">
+              <label for="category" class="violations__form-label">
+                Тип нарушения
+              </label>
+
+              <select
+                id="category"
+                name="category"
+                class="violations__form-select"
+                required
+              >
+                <option value="">Выберите...</option>
+                <option
+                  value="Сотрудник находится на рабочем месте в нетрезвом состоянии"
+                  class="violations__form-option"
+                >
+                  Сотрудник находится на рабочем месте в нетрезвом состоянии
+                </option>
+                <option
+                  value="Сотрудник курит на рабочем месте электронные сигареты"
+                  class="violations__form-option"
+                >
+                  Сотрудник курит на рабочем месте электронные сигареты
+                </option>
+                <option
+                  value="Сотрудники ушли на перекур вдвоем, тем самым оставив магазин
+                без присмотра"
+                  class="violations__form-option"
+                >
+                  Сотрудники ушли на "перекур" вдвоем, тем самым оставив магазин
+                  без присмотра
+                </option>
+                <option
+                  value="Допущены грубые нарушения дресс-кода: яркие футболки,
+                толстовки и худи с принтами, рваные джинсы и т.д."
+                  class="violations__form-option"
+                >
+                  Допущены грубые нарушения дресс-кода: яркие футболки,
+                  толстовки и худи с принтами, рваные джинсы и т.д.
+                </option>
+                <option
+                  value="Сотрудник употребляет еду на рабочем месте"
+                  class="violations__form-option"
+                >
+                  Сотрудник употребляет еду на рабочем месте
+                </option>
+                <option
+                  value="Сотрудник использует ненормативную лексику"
+                  class="violations__form-option"
+                >
+                  Сотрудник использует ненормативную лексику
+                </option>
+                <option
+                  value="Сотрудник уснул на рабочем месте (или визуально выглядит так,
+                как будто он спит)"
+                  class="violations__form-option"
+                >
+                  Сотрудник уснул на рабочем месте (или визуально выглядит так,
+                  как будто он спит)
+                </option>
+                <option
+                  value="Сотрудник употребляет алкогольную продукцию (в т.ч. в
+                подсобном помещении)"
+                  class="violations__form-option"
+                >
+                  Сотрудник употребляет алкогольную продукцию (в т.ч. в
+                  подсобном помещении)
+                </option>
+                <option
+                  value="Сотрудник употребляет напитки на рабочем месте (исключение -
+                кружки-непроливайки)"
+                  class="violations__form-option"
+                >
+                  Сотрудник употребляет напитки на рабочем месте (исключение -
+                  кружки "непроливайки")
+                </option>
+                <option value="Сотрудник принимает пищу на рабочем месте">
+                  Сотрудник принимает пищу на рабочем месте
+                </option>
+              </select>
+
+              <label for="sales-point" class="violations__form-label">
+                Точка, на которой произошло нарушение
+              </label>
+
+              <select
+                id="sales-point"
+                name="sales-point"
+                class="violations__form-select"
+                required
+              >
+                <option value="">Выберите...</option>
+                <option value="Басманная" class="violations__form-option">
+                  Басманная
+                </option>
+                <option
+                  value="Варшавское шоссе"
+                  class="violations__form-option"
+                >
+                  Варшавское шоссе
+                </option>
+                <option
+                  value="Верхние поля/ВЕРХ"
+                  class="violations__form-option"
+                >
+                  Верхние поля/ВЕРХ
+                </option>
+                <option
+                  value="Дмитровское шоссе/ДИМ"
+                  class="violations__form-option"
+                >
+                  Дмитровское шоссе/ДИМ
+                </option>
+                <option value="Дубровка" class="violations__form-option">
+                  Дубровка
+                </option>
+                <option value="Измайловский" class="violations__form-option">
+                  Измайловский
+                </option>
+                <option value="Кастанаевская" class="violations__form-option">
+                  Кастанаевская
+                </option>
+                <option value="Кирова" class="violations__form-option">
+                  Кирова
+                </option>
+                <option value="Коньково" class="violations__form-option">
+                  Коньково
+                </option>
+                <option value="Корабельная" class="violations__form-option">
+                  Корабельная
+                </option>
+                <option value="Красногорск" class="violations__form-option">
+                  Красногорск
+                </option>
+                <option
+                  value="Ленинградское шоссе"
+                  class="violations__form-option"
+                >
+                  Ленинградское шоссе
+                </option>
+                <option
+                  value="Ленинский проспект"
+                  class="violations__form-option"
+                >
+                  Ленинский проспект
+                </option>
+                <option value="Люсиновская" class="violations__form-option">
+                  Люсиновская
+                </option>
+                <option value="Марьино/Дон" class="violations__form-option">
+                  Марьино/Дон
+                </option>
+                <option value="Осенний" class="violations__form-option">
+                  Осенний
+                </option>
+                <option
+                  value="Проспект Мира/АЛЕКС"
+                  class="violations__form-option"
+                >
+                  Проспект Мира/АЛЕКС
+                </option>
+                <option value="Реутов" class="violations__form-option">
+                  Реутов
+                </option>
+                <option value="Рокосовского" class="violations__form-option">
+                  Рокосовского
+                </option>
+                <option value="Садовая" class="violations__form-option">
+                  Садовая
+                </option>
+                <option value="Скобелевская" class="violations__form-option">
+                  Скобелевская
+                </option>
+                <option value="Строгино" class="violations__form-option">
+                  Строгино
+                </option>
+                <option
+                  value="Шоссе Энтузиастов"
+                  class="violations__form-option"
+                >
+                  Шоссе Энтузиастов
+                </option>
+                <option
+                  value="Щербаковская/СЕМА"
+                  class="violations__form-option"
+                >
+                  Щербаковская/СЕМА
+                </option>
+                <option value="Щусева" class="violations__form-option">
+                  Щусева
+                </option>
+                <option value="Янгеля" class="violations__form-option">
+                  Янгеля
+                </option>
+              </select>
+
+              <label for="datetime" class="violations__form-label"
+                >Выберите дату и время:</label
+              >
+              <input
+                type="datetime-local"
+                id="violations-datetime"
+                name="datetime"
+                class="violations__input"
+                required
+              />
+              <label for="violation-image" class="violations__form-label"
+                >Установите крусор в поле и вставьте изображение из буфера
+                обмена:</label
+              >
+              <input
+                name="violation-image"
+                type="text"
+                id="myInput"
+                class="violations__input"
+              />
+              <img id="myImage" src="" alt="" class="violation__image" />
+
+              <button
+                class="violations__submit-button"
+                type="submit"
+                disabled
+                id="submit-button"
+              >
+                Отправить
+              </button>
+            </form>
+
+            <!-- Форма -->
+          </div>
+        </div>
+      </div>
+
+      <div id="notification" class="notification">
+        <span id="notification-text"></span>
+        <span id="notification-close">&times;</span>
+      </div>
     </div>
+
+    <script>
+      // Получаем элементы DOM
+      var violatioinsModal = document.getElementById("violations__modal");
+      var violationsFormOpenButton = document.getElementById(
+        "violations-open-button"
+      );
+      var modalCloseButtton = document.getElementsByClassName(
+        "violations__close-button"
+      )[0];
+      var selects = document.querySelectorAll("select[required]");
+      var submitButton = document.getElementById("submit-button");
+      let datetimeInput = document.getElementById("violations-datetime");
+
+      // код для вставки изображения
+      var input = document.getElementById("myInput");
+      var image = document.getElementById("myImage");
+
+      input.addEventListener("paste", function (event) {
+        event.preventDefault();
+
+        var items = event.clipboardData.items;
+
+        for (var i = 0; i < items.length; i++) {
+          var item = items[i];
+
+          if (item.type.indexOf("image") !== -1) {
+            var file = item.getAsFile();
+            var reader = new FileReader();
+
+            reader.onload = function (event) {
+              image.src = event.target.result;
+              image.style.display = "block";
+            };
+
+            reader.readAsDataURL(file);
+          }
+        }
+      });
+      // нотификация об успешной отправке формы
+      function showNotification(message) {
+        var notification = document.getElementById("notification");
+        var notificationText = document.getElementById("notification-text");
+        var notificationClose = document.getElementById("notification-close");
+
+        notificationText.textContent = message;
+        notification.style.display = "flex";
+
+        setTimeout(function () {
+          notification.style.display = "none";
+        }, 5000);
+
+        notificationClose.onclick = function () {
+          notification.style.display = "none";
+        };
+      }
+
+      // проверка инпутов формы
+
+      function checkSelects() {
+        var allFilled = true;
+
+        // Перебираем все элементы select
+        for (var i = 0; i < selects.length; i++) {
+          // Если значение равно пустой строке, значит поле не заполнено
+
+          if (selects[i].value === "") {
+            allFilled = false;
+            break;
+          }
+        }
+        if (datetimeInput.value === "") {
+          allFilled = false;
+        }
+
+        // Если все поля заполнены, делаем кнопку активной
+        if (allFilled) {
+          submitButton.classList.add("active");
+          submitButton.disabled = false;
+        } else {
+          submitButton.classList.remove("active");
+          submitButton.disabled = true;
+        }
+      }
+
+      // Открываем модальное окно при клике на кнопку
+      violationsFormOpenButton.onclick = function () {
+        violatioinsModal.style.display = "flex";
+        document.getElementById("violations").reset();
+        image.src = "";
+        image.style.display = "none";
+      };
+
+      checkSelects();
+
+      for (var i = 0; i < selects.length; i++) {
+        selects[i].addEventListener("change", checkSelects);
+      }
+
+      datetimeInput.addEventListener("change", checkSelects);
+
+      // Закрываем модальное окно при клике на крестик
+      modalCloseButtton.onclick = function () {
+        violatioinsModal.style.display = "none";
+      };
+
+      // Закрываем модальное окно при клике снаружи формы
+      window.onclick = function (event) {
+        if (event.target == violatioinsModal) {
+          violatioinsModal.style.display = "none";
+        }
+      };
+
+      document
+        .getElementById("violations")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var category = document.getElementById("category").value;
+          var salesPoint = document.getElementById("sales-point").value;
+          var violationDateTime = document.getElementById(
+            "violations-datetime"
+          ).value;
+
+          var formattedDate = `${violationDateTime.split("T")[0]}, ${
+            violationDateTime.split("T")[1]
+          }`;
+
+          var webhookUrl =
+            "https://discordapp.com/api/webhooks/1227206833932996670/ZFfg42r4pjU3ImxsNegdW0pTzQDu5aJR12xCOWgg1IVCbDyZqV0qtPDWyiFfBdAdaM5_";
+
+          // тут мы пробуем получить бинарник изображения из вставки
+          var imageFile;
+
+          if (image.src.startsWith("data:image")) {
+            var dataUrl = image.src;
+            var byteString = atob(dataUrl.split(",")[1]);
+            var mimeString = dataUrl.split(",")[0].split(":")[1].split(";")[0];
+            var ab = new ArrayBuffer(byteString.length);
+            var ia = new Uint8Array(ab);
+            for (var i = 0; i < byteString.length; i++) {
+              ia[i] = byteString.charCodeAt(i);
+            }
+            imageFile = new File([ab], "image.png", { type: mimeString });
+            console.log(imageFile);
+          } else {
+            imageFile = null;
+          }
+
+          // а тут отправляем то же самое в google forms
+          // хотели, но корс не дает, так что убираем вообще и оставляем только в дис
+
+          // формируем body
+
+          var data = {
+            // username: username,
+            content: `${formattedDate}: на точке ${salesPoint} зафиксированно нарушение: ${category}`,
+            file: imageFile,
+          };
+
+          var formData = new FormData();
+
+          formData.append(
+            "content",
+            `${formattedDate}: на точке ${salesPoint} зафиксированно нарушение: ${category}`
+          );
+          formData.append("file", imageFile);
+
+          // тут мы пробуем отправить всю эту кутерьму в дискорд
+
+          fetch(webhookUrl, {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => {
+              violatioinsModal.style.display = "none";
+              console.log("Сообщение успешно отправлено.");
+              showNotification("Сообщение успешно отправлено в Discord");
+            })
+            .catch((error) => {
+              console.error("Ошибка при отправке сообщения:", error);
+              showNotification("Ошибка при отправке сообщения");
+            });
+        });
+    </script>
   </body>
 </html>
