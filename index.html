@@ -98,242 +98,229 @@
           </li>
         </ul>
       </div>
-      <div class="violations">
-        <div id="violations__modal" class="violations__modal">
-          <!-- Контент модального окна -->
-          <div class="violations__container">
-            <!-- Кнопка закрытия -->
-            <span class="violations__close-button">&times;</span>
-            <form name="violations" id="violations" class="violations__form">
-              <label for="category" class="violations__form-label">
-                Тип нарушения
-              </label>
 
-              <select
-                id="category"
-                name="category"
-                class="violations__form-select"
-                required
+      <div id="violations__modal" class="violations__modal">
+        <!-- Контент модального окна -->
+        <div class="violations__container">
+          <!-- Кнопка закрытия -->
+          <span class="violations__close-button">&times;</span>
+          <form name="violations" id="violations" class="violations__form">
+            <label for="category" class="violations__form-label">
+              Тип нарушения
+            </label>
+
+            <select
+              id="category"
+              name="category"
+              class="violations__form-select"
+              required
+            >
+              <option value="">Выберите...</option>
+              <option
+                value="Сотрудник находится на рабочем месте в нетрезвом состоянии"
+                class="violations__form-option"
               >
-                <option value="">Выберите...</option>
-                <option
-                  value="Сотрудник находится на рабочем месте в нетрезвом состоянии"
-                  class="violations__form-option"
-                >
-                  Сотрудник находится на рабочем месте в нетрезвом состоянии
-                </option>
-                <option
-                  value="Сотрудник курит на рабочем месте электронные сигареты"
-                  class="violations__form-option"
-                >
-                  Сотрудник курит на рабочем месте электронные сигареты
-                </option>
-                <option
-                  value="Сотрудники ушли на перекур вдвоем, тем самым оставив магазин
+                Сотрудник находится на рабочем месте в нетрезвом состоянии
+              </option>
+              <option
+                value="Сотрудник курит на рабочем месте электронные сигареты"
+                class="violations__form-option"
+              >
+                Сотрудник курит на рабочем месте электронные сигареты
+              </option>
+              <option
+                value="Сотрудники ушли на перекур вдвоем, тем самым оставив магазин
                 без присмотра"
-                  class="violations__form-option"
-                >
-                  Сотрудники ушли на "перекур" вдвоем, тем самым оставив магазин
-                  без присмотра
-                </option>
-                <option
-                  value="Допущены грубые нарушения дресс-кода: яркие футболки,
+                class="violations__form-option"
+              >
+                Сотрудники ушли на "перекур" вдвоем, тем самым оставив магазин
+                без присмотра
+              </option>
+              <option
+                value="Допущены грубые нарушения дресс-кода: яркие футболки,
                 толстовки и худи с принтами, рваные джинсы и т.д."
-                  class="violations__form-option"
-                >
-                  Допущены грубые нарушения дресс-кода: яркие футболки,
-                  толстовки и худи с принтами, рваные джинсы и т.д.
-                </option>
-                <option
-                  value="Сотрудник употребляет еду на рабочем месте"
-                  class="violations__form-option"
-                >
-                  Сотрудник употребляет еду на рабочем месте
-                </option>
-                <option
-                  value="Сотрудник использует ненормативную лексику"
-                  class="violations__form-option"
-                >
-                  Сотрудник использует ненормативную лексику
-                </option>
-                <option
-                  value="Сотрудник уснул на рабочем месте (или визуально выглядит так,
+                class="violations__form-option"
+              >
+                Допущены грубые нарушения дресс-кода: яркие футболки, толстовки
+                и худи с принтами, рваные джинсы и т.д.
+              </option>
+              <option
+                value="Сотрудник употребляет еду на рабочем месте"
+                class="violations__form-option"
+              >
+                Сотрудник употребляет еду на рабочем месте
+              </option>
+              <option
+                value="Сотрудник использует ненормативную лексику"
+                class="violations__form-option"
+              >
+                Сотрудник использует ненормативную лексику
+              </option>
+              <option
+                value="Сотрудник уснул на рабочем месте (или визуально выглядит так,
                 как будто он спит)"
-                  class="violations__form-option"
-                >
-                  Сотрудник уснул на рабочем месте (или визуально выглядит так,
-                  как будто он спит)
-                </option>
-                <option
-                  value="Сотрудник употребляет алкогольную продукцию (в т.ч. в
+                class="violations__form-option"
+              >
+                Сотрудник уснул на рабочем месте (или визуально выглядит так,
+                как будто он спит)
+              </option>
+              <option
+                value="Сотрудник употребляет алкогольную продукцию (в т.ч. в
                 подсобном помещении)"
-                  class="violations__form-option"
-                >
-                  Сотрудник употребляет алкогольную продукцию (в т.ч. в
-                  подсобном помещении)
-                </option>
-                <option
-                  value="Сотрудник употребляет напитки на рабочем месте (исключение -
+                class="violations__form-option"
+              >
+                Сотрудник употребляет алкогольную продукцию (в т.ч. в подсобном
+                помещении)
+              </option>
+              <option
+                value="Сотрудник употребляет напитки на рабочем месте (исключение -
                 кружки-непроливайки)"
-                  class="violations__form-option"
-                >
-                  Сотрудник употребляет напитки на рабочем месте (исключение -
-                  кружки "непроливайки")
-                </option>
-                <option value="Сотрудник принимает пищу на рабочем месте">
-                  Сотрудник принимает пищу на рабочем месте
-                </option>
-              </select>
-
-              <label for="sales-point" class="violations__form-label">
-                Точка, на которой произошло нарушение
-              </label>
-
-              <select
-                id="sales-point"
-                name="sales-point"
-                class="violations__form-select"
-                required
+                class="violations__form-option"
               >
-                <option value="">Выберите...</option>
-                <option value="Басманная" class="violations__form-option">
-                  Басманная
-                </option>
-                <option
-                  value="Варшавское шоссе"
-                  class="violations__form-option"
-                >
-                  Варшавское шоссе
-                </option>
-                <option
-                  value="Верхние поля/ВЕРХ"
-                  class="violations__form-option"
-                >
-                  Верхние поля/ВЕРХ
-                </option>
-                <option
-                  value="Дмитровское шоссе/ДИМ"
-                  class="violations__form-option"
-                >
-                  Дмитровское шоссе/ДИМ
-                </option>
-                <option value="Дубровка" class="violations__form-option">
-                  Дубровка
-                </option>
-                <option value="Измайловский" class="violations__form-option">
-                  Измайловский
-                </option>
-                <option value="Кастанаевская" class="violations__form-option">
-                  Кастанаевская
-                </option>
-                <option value="Кирова" class="violations__form-option">
-                  Кирова
-                </option>
-                <option value="Коньково" class="violations__form-option">
-                  Коньково
-                </option>
-                <option value="Корабельная" class="violations__form-option">
-                  Корабельная
-                </option>
-                <option value="Красногорск" class="violations__form-option">
-                  Красногорск
-                </option>
-                <option
-                  value="Ленинградское шоссе"
-                  class="violations__form-option"
-                >
-                  Ленинградское шоссе
-                </option>
-                <option
-                  value="Ленинский проспект"
-                  class="violations__form-option"
-                >
-                  Ленинский проспект
-                </option>
-                <option value="Люсиновская" class="violations__form-option">
-                  Люсиновская
-                </option>
-                <option value="Марьино/Дон" class="violations__form-option">
-                  Марьино/Дон
-                </option>
-                <option value="Осенний" class="violations__form-option">
-                  Осенний
-                </option>
-                <option
-                  value="Проспект Мира/АЛЕКС"
-                  class="violations__form-option"
-                >
-                  Проспект Мира/АЛЕКС
-                </option>
-                <option value="Реутов" class="violations__form-option">
-                  Реутов
-                </option>
-                <option value="Рокосовского" class="violations__form-option">
-                  Рокосовского
-                </option>
-                <option value="Садовая" class="violations__form-option">
-                  Садовая
-                </option>
-                <option value="Скобелевская" class="violations__form-option">
-                  Скобелевская
-                </option>
-                <option value="Строгино" class="violations__form-option">
-                  Строгино
-                </option>
-                <option
-                  value="Шоссе Энтузиастов"
-                  class="violations__form-option"
-                >
-                  Шоссе Энтузиастов
-                </option>
-                <option
-                  value="Щербаковская/СЕМА"
-                  class="violations__form-option"
-                >
-                  Щербаковская/СЕМА
-                </option>
-                <option value="Щусева" class="violations__form-option">
-                  Щусева
-                </option>
-                <option value="Янгеля" class="violations__form-option">
-                  Янгеля
-                </option>
-              </select>
+                Сотрудник употребляет напитки на рабочем месте (исключение -
+                кружки "непроливайки")
+              </option>
+              <option value="Сотрудник принимает пищу на рабочем месте">
+                Сотрудник принимает пищу на рабочем месте
+              </option>
+            </select>
 
-              <label for="datetime" class="violations__form-label"
-                >Выберите дату и время:</label
-              >
-              <input
-                type="datetime-local"
-                id="violations-datetime"
-                name="datetime"
-                class="violations__input"
-                required
-              />
-              <label for="violation-image" class="violations__form-label"
-                >Установите крусор в поле и вставьте изображение из буфера
-                обмена:</label
-              >
-              <input
-                name="violation-image"
-                type="text"
-                id="myInput"
-                class="violations__input"
-              />
-              <img id="myImage" src="" alt="" class="violation__image" />
+            <label for="sales-point" class="violations__form-label">
+              Точка, на которой произошло нарушение
+            </label>
 
-              <button
-                class="violations__submit-button"
-                type="submit"
-                disabled
-                id="submit-button"
+            <select
+              id="sales-point"
+              name="sales-point"
+              class="violations__form-select"
+              required
+            >
+              <option value="">Выберите...</option>
+              <option value="Басманная" class="violations__form-option">
+                Басманная
+              </option>
+              <option value="Варшавское шоссе" class="violations__form-option">
+                Варшавское шоссе
+              </option>
+              <option value="Верхние поля/ВЕРХ" class="violations__form-option">
+                Верхние поля/ВЕРХ
+              </option>
+              <option
+                value="Дмитровское шоссе/ДИМ"
+                class="violations__form-option"
               >
-                Отправить
-              </button>
-            </form>
+                Дмитровское шоссе/ДИМ
+              </option>
+              <option value="Дубровка" class="violations__form-option">
+                Дубровка
+              </option>
+              <option value="Измайловский" class="violations__form-option">
+                Измайловский
+              </option>
+              <option value="Кастанаевская" class="violations__form-option">
+                Кастанаевская
+              </option>
+              <option value="Кирова" class="violations__form-option">
+                Кирова
+              </option>
+              <option value="Коньково" class="violations__form-option">
+                Коньково
+              </option>
+              <option value="Корабельная" class="violations__form-option">
+                Корабельная
+              </option>
+              <option value="Красногорск" class="violations__form-option">
+                Красногорск
+              </option>
+              <option
+                value="Ленинградское шоссе"
+                class="violations__form-option"
+              >
+                Ленинградское шоссе
+              </option>
+              <option
+                value="Ленинский проспект"
+                class="violations__form-option"
+              >
+                Ленинский проспект
+              </option>
+              <option value="Люсиновская" class="violations__form-option">
+                Люсиновская
+              </option>
+              <option value="Марьино/Дон" class="violations__form-option">
+                Марьино/Дон
+              </option>
+              <option value="Осенний" class="violations__form-option">
+                Осенний
+              </option>
+              <option
+                value="Проспект Мира/АЛЕКС"
+                class="violations__form-option"
+              >
+                Проспект Мира/АЛЕКС
+              </option>
+              <option value="Реутов" class="violations__form-option">
+                Реутов
+              </option>
+              <option value="Рокосовского" class="violations__form-option">
+                Рокосовского
+              </option>
+              <option value="Садовая" class="violations__form-option">
+                Садовая
+              </option>
+              <option value="Скобелевская" class="violations__form-option">
+                Скобелевская
+              </option>
+              <option value="Строгино" class="violations__form-option">
+                Строгино
+              </option>
+              <option value="Шоссе Энтузиастов" class="violations__form-option">
+                Шоссе Энтузиастов
+              </option>
+              <option value="Щербаковская/СЕМА" class="violations__form-option">
+                Щербаковская/СЕМА
+              </option>
+              <option value="Щусева" class="violations__form-option">
+                Щусева
+              </option>
+              <option value="Янгеля" class="violations__form-option">
+                Янгеля
+              </option>
+            </select>
 
-            <!-- Форма -->
-          </div>
+            <label for="datetime" class="violations__form-label"
+              >Выберите дату и время:</label
+            >
+            <input
+              type="datetime-local"
+              id="violations-datetime"
+              name="datetime"
+              class="violations__input"
+              required
+            />
+            <label for="violation-image" class="violations__form-label"
+              >Установите крусор в поле и вставьте изображение из буфера
+              обмена:</label
+            >
+            <input
+              name="violation-image"
+              type="text"
+              id="myInput"
+              class="violations__input"
+            />
+            <img id="myImage" src="" alt="" class="violation__image" />
+
+            <button
+              class="violations__submit-button"
+              type="submit"
+              disabled
+              id="submit-button"
+            >
+              Отправить
+            </button>
+          </form>
+
+          <!-- Форма -->
         </div>
       </div>
 
