@@ -145,10 +145,31 @@
                 и худи с принтами, рваные джинсы и т.д.
               </option>
               <option
+                value="Сотрудник сидит в телефоне более 15 минут подряд "
+                class="violations__form-option"
+              >
+                Сотрудник сидит в телефоне более 15 минут подряд
+              </option>
+              <option
                 value="Сотрудник употребляет еду на рабочем месте"
                 class="violations__form-option"
               >
                 Сотрудник употребляет еду на рабочем месте
+              </option>
+              <option
+                value="Есть коробки в рогоовом зале и кассовой зоне (или прочие посторонние предметы), которые мешают перемещению клиентов"
+                class="violations__form-option"
+              >
+                Есть коробки в рогоовом зале и кассовой зоне (или прочие
+                посторонние предметы), которые мешают перемещению клиентов
+              </option>
+              <option
+                value="Беспордок на кассовой зоне / рабочих местах в зоне видимости покупателя (личные вещи, посторонние предметы: печать, скотч, полироль, тряпка и т.д.)"
+                class="violations__form-option"
+              >
+                Беспордок на кассовой зоне / рабочих местах в зоне видимости
+                покупателя (личные вещи, посторонние предметы: печать, скотч,
+                полироль, тряпка и т.д.)
               </option>
               <option
                 value="Сотрудник использует ненормативную лексику"
@@ -458,7 +479,7 @@
           }`;
 
           var webhookUrl =
-            "https://discordapp.com/api/webhooks/1227206833932996670/ZFfg42r4pjU3ImxsNegdW0pTzQDu5aJR12xCOWgg1IVCbDyZqV0qtPDWyiFfBdAdaM5_";
+            "https://discord.com/api/webhooks/1227555284952682547/7EJ2yKtAm9G6f-TzzLMyIz8v7YTwHSLpGWbb6x6WjurviBYY3gVnHHOOkHejETZH0ewi";
 
           // тут мы пробуем получить бинарник изображения из вставки
           var imageFile;
@@ -473,7 +494,7 @@
               ia[i] = byteString.charCodeAt(i);
             }
             imageFile = new File([ab], "image.png", { type: mimeString });
-            console.log(imageFile);
+            // console.log(imageFile);
           } else {
             imageFile = null;
           }
@@ -481,20 +502,15 @@
           // а тут отправляем то же самое в google forms
           // хотели, но корс не дает, так что убираем вообще и оставляем только в дис
 
-          // формируем body
-
-          var data = {
-            // username: username,
-            content: `${formattedDate}: на точке ${salesPoint} зафиксированно нарушение: ${category}`,
-            file: imageFile,
-          };
-
           var formData = new FormData();
 
-          formData.append(
-            "content",
-            `${formattedDate}: на точке ${salesPoint} зафиксированно нарушение: ${category}`
-          );
+          // `${formattedDate}: на точке ${salesPoint} зафиксированно нарушение: ${category}`
+
+          // форматируем сообщение, чтобы выглядело красиво в dis
+          var formattedMessage = `**Дата и время:** ${formattedDate}\n**Магазин:** ${salesPoint}\n**Нарушение:** ${category}\n**Скриншот:**\n\n`;
+
+          // добавляем в data нужный контент
+          formData.append("content", formattedMessage);
           formData.append("file", imageFile);
 
           // тут мы пробуем отправить всю эту кутерьму в дискорд
