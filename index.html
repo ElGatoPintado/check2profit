@@ -105,6 +105,25 @@
           <!-- Кнопка закрытия -->
           <span class="violations__close-button">&times;</span>
           <form name="violations" id="violations" class="violations__form">
+            <label for="operator" class="violations__form-label">
+              Фамилия оператора
+            </label>
+
+            <select
+              id="operator"
+              name="operator"
+              class="violations__form-select"
+              required
+            >
+              <option value="">Выберите...</option>
+              <option value="Крюкова" class="violations__form-option">
+                Крюкова
+              </option>
+              <option value="Ясаков" class="violations__form-option">
+                Ясаков
+              </option>
+            </select>
+
             <label for="category" class="violations__form-label">
               Тип нарушения
             </label>
@@ -352,6 +371,7 @@
               class="violations__input"
               required
             />
+
             <label for="violation-image" class="violations__form-label"
               >Установите крусор в поле и вставьте изображение из буфера
               обмена:</label
@@ -502,6 +522,7 @@
           event.preventDefault();
 
           var category = document.getElementById("category").value;
+          var operator = document.getElementById("operator").value;
           var salesPoint = document.getElementById("sales-point").value;
           var violationDateTime = document.getElementById(
             "violations-datetime"
@@ -540,7 +561,7 @@
           // `${formattedDate}: на точке ${salesPoint} зафиксированно нарушение: ${category}`
 
           // форматируем сообщение, чтобы выглядело красиво в dis
-          var formattedMessage = `**Дата и время:** ${formattedDate}\n**Магазин:** ${salesPoint}\n**Нарушение:** ${category}\n**Скриншот:**\n\n`;
+          var formattedMessage = `**Дата и время:** ${formattedDate}\n**Магазин:** ${salesPoint}\n**Нарушение:** ${category}\n**Оператор:** ${operator}\n**Скриншот:**\n\n`;
 
           // добавляем в data нужный контент
           formData.append("content", formattedMessage);
