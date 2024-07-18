@@ -372,6 +372,17 @@
               required
             />
 
+            <label for="message" class="violations__form-label"
+              >Комментарии к сообщению:</label
+            >
+            <textarea
+              name="message"
+              type="text"
+              id="message"
+              placeholder="Введите комментарий в произвольной форме, в случае необходимости (необязательно)"
+              class="violations__input text-area"
+            ></textarea>
+
             <label for="violation-image" class="violations__form-label"
               >Установите крусор в поле и вставьте изображение из буфера
               обмена:</label
@@ -528,14 +539,19 @@
             "violations-datetime"
           ).value;
 
+          var message = document.getElementById("message").value;
+
           var formattedDate = `${violationDateTime.split("T")[0]}, ${
             violationDateTime.split("T")[1]
           }`;
 
-          var webhookUrl =
-            "https://discord.com/api/webhooks/1227555284952682547/7EJ2yKtAm9G6f-TzzLMyIz8v7YTwHSLpGWbb6x6WjurviBYY3gVnHHOOkHejETZH0ewi";
+          // боевой url
+          // var webhookUrl =
+          //   "https://discord.com/api/webhooks/1227555284952682547/7EJ2yKtAm9G6f-TzzLMyIz8v7YTwHSLpGWbb6x6WjurviBYY3gVnHHOOkHejETZH0ewi";
 
           // тестовый url для отправки
+          var webhookUrl =
+            "https://discord.com/api/webhooks/1227206833932996670/ZFfg42r4pjU3ImxsNegdW0pTzQDu5aJR12xCOWgg1IVCbDyZqV0qtPDWyiFfBdAdaM5_";
 
           // тут мы пробуем получить бинарник изображения из вставки
           var imageFile;
@@ -563,7 +579,7 @@
           // `${formattedDate}: на точке ${salesPoint} зафиксированно нарушение: ${category}`
 
           // форматируем сообщение, чтобы выглядело красиво в dis
-          var formattedMessage = `**Дата и время:** ${formattedDate}\n**Магазин:** ${salesPoint}\n**Нарушение:** ${category}\n**Оператор:** ${operator}\n**Скриншот:**\n\n`;
+          var formattedMessage = `**Дата и время:** ${formattedDate}\n**Магазин:** ${salesPoint}\n**Нарушение:** ${category}\n**Комментарий:** ${message}\n**Оператор:** ${operator}\n**Скриншот:**\n\n`;
 
           // добавляем в data нужный контент
           formData.append("content", formattedMessage);
