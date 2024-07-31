@@ -237,12 +237,11 @@
                 помещении)
               </option>
               <option
-                value="Сотрудник употребляет напитки на рабочем месте (исключение -
-                кружки-непроливайки)"
+                value="Сотрудник употребляет напитки на рабочем месте из открытой тары (стакан, кружка, бокал и проч.)"
                 class="violations__form-option"
               >
-                Сотрудник употребляет напитки на рабочем месте (исключение -
-                кружки "непроливайки")
+                Сотрудник употребляет напитки на рабочем месте из открытой тары
+                (стакан, кружка, бокал и проч.)
               </option>
               <!-- <option value="Сотрудник принимает пищу на рабочем месте">
                 Сотрудник принимает пищу на рабочем месте
@@ -417,22 +416,22 @@
 
     <script>
       // Получаем элементы DOM
-      var violatioinsModal = document.getElementById("violations__modal");
+      var violatioinsModal = document.getElementById('violations__modal');
       var violationsFormOpenButton = document.getElementById(
-        "violations-open-button"
+        'violations-open-button'
       );
       var modalCloseButtton = document.getElementsByClassName(
-        "violations__close-button"
+        'violations__close-button'
       )[0];
-      var selects = document.querySelectorAll("select[required]");
-      var submitButton = document.getElementById("submit-button");
-      let datetimeInput = document.getElementById("violations-datetime");
+      var selects = document.querySelectorAll('select[required]');
+      var submitButton = document.getElementById('submit-button');
+      let datetimeInput = document.getElementById('violations-datetime');
 
       // код для вставки изображения
-      var input = document.getElementById("myInput");
-      var image = document.getElementById("myImage");
+      var input = document.getElementById('myInput');
+      var image = document.getElementById('myImage');
 
-      input.addEventListener("paste", function (event) {
+      input.addEventListener('paste', function (event) {
         event.preventDefault();
 
         var items = event.clipboardData.items;
@@ -440,13 +439,13 @@
         for (var i = 0; i < items.length; i++) {
           var item = items[i];
 
-          if (item.type.indexOf("image") !== -1) {
+          if (item.type.indexOf('image') !== -1) {
             var file = item.getAsFile();
             var reader = new FileReader();
 
             reader.onload = function (event) {
               image.src = event.target.result;
-              image.style.display = "block";
+              image.style.display = 'block';
             };
 
             reader.readAsDataURL(file);
@@ -455,19 +454,19 @@
       });
       // нотификация об успешной отправке формы
       function showNotification(message) {
-        var notification = document.getElementById("notification");
-        var notificationText = document.getElementById("notification-text");
-        var notificationClose = document.getElementById("notification-close");
+        var notification = document.getElementById('notification');
+        var notificationText = document.getElementById('notification-text');
+        var notificationClose = document.getElementById('notification-close');
 
         notificationText.textContent = message;
-        notification.style.display = "flex";
+        notification.style.display = 'flex';
 
         setTimeout(function () {
-          notification.style.display = "none";
+          notification.style.display = 'none';
         }, 5000);
 
         notificationClose.onclick = function () {
-          notification.style.display = "none";
+          notification.style.display = 'none';
         };
       }
 
@@ -480,95 +479,95 @@
         for (var i = 0; i < selects.length; i++) {
           // Если значение равно пустой строке, значит поле не заполнено
 
-          if (selects[i].value === "") {
+          if (selects[i].value === '') {
             allFilled = false;
             break;
           }
         }
-        if (datetimeInput.value === "") {
+        if (datetimeInput.value === '') {
           allFilled = false;
         }
 
         // Если все поля заполнены, делаем кнопку активной
         if (allFilled) {
-          submitButton.classList.add("active");
+          submitButton.classList.add('active');
           submitButton.disabled = false;
         } else {
-          submitButton.classList.remove("active");
+          submitButton.classList.remove('active');
           submitButton.disabled = true;
         }
       }
 
       // Открываем модальное окно при клике на кнопку
       violationsFormOpenButton.onclick = function () {
-        violatioinsModal.style.display = "flex";
-        document.getElementById("violations").reset();
-        image.src = "";
-        image.style.display = "none";
+        violatioinsModal.style.display = 'flex';
+        document.getElementById('violations').reset();
+        image.src = '';
+        image.style.display = 'none';
       };
 
       checkSelects();
 
       for (var i = 0; i < selects.length; i++) {
-        selects[i].addEventListener("change", checkSelects);
+        selects[i].addEventListener('change', checkSelects);
       }
 
-      datetimeInput.addEventListener("change", checkSelects);
+      datetimeInput.addEventListener('change', checkSelects);
 
       // Закрываем модальное окно при клике на крестик
       modalCloseButtton.onclick = function () {
-        violatioinsModal.style.display = "none";
+        violatioinsModal.style.display = 'none';
       };
 
       // Закрываем модальное окно при клике снаружи формы
       window.onclick = function (event) {
         if (event.target == violatioinsModal) {
-          violatioinsModal.style.display = "none";
+          violatioinsModal.style.display = 'none';
         }
       };
 
       document
-        .getElementById("violations")
-        .addEventListener("submit", function (event) {
+        .getElementById('violations')
+        .addEventListener('submit', function (event) {
           event.preventDefault();
 
-          var category = document.getElementById("category").value;
-          var operator = document.getElementById("operator").value;
-          var salesPoint = document.getElementById("sales-point").value;
+          var category = document.getElementById('category').value;
+          var operator = document.getElementById('operator').value;
+          var salesPoint = document.getElementById('sales-point').value;
           var violationDateTime = document.getElementById(
-            "violations-datetime"
+            'violations-datetime'
           ).value;
 
-          var message = document.getElementById("message").value;
+          var message = document.getElementById('message').value;
 
-          var formattedDate = `${violationDateTime.split("T")[0]}, ${
-            violationDateTime.split("T")[1]
+          var formattedDate = `${violationDateTime.split('T')[0]}, ${
+            violationDateTime.split('T')[1]
           }`;
 
           // боевой url
           var webhookUrl =
-            "https://discord.com/api/webhooks/1227555284952682547/7EJ2yKtAm9G6f-TzzLMyIz8v7YTwHSLpGWbb6x6WjurviBYY3gVnHHOOkHejETZH0ewi";
+            'https://discord.com/api/webhooks/1227555284952682547/7EJ2yKtAm9G6f-TzzLMyIz8v7YTwHSLpGWbb6x6WjurviBYY3gVnHHOOkHejETZH0ewi';
 
           // тестовый url для отправки
           // var webhookUrl =
           //   "https://discord.com/api/webhooks/1227206833932996670/ZFfg42r4pjU3ImxsNegdW0pTzQDu5aJR12xCOWgg1IVCbDyZqV0qtPDWyiFfBdAdaM5_";
 
           const scriptURL =
-            "https://script.google.com/macros/s/AKfycbz5Gpz19AKN9oyJa9VpMmoIIp2JZcLuot8t-0m7EOyOQfjofiHwyXHD3RbTBTbvbflF/exec";
+            'https://script.google.com/macros/s/AKfycbz5Gpz19AKN9oyJa9VpMmoIIp2JZcLuot8t-0m7EOyOQfjofiHwyXHD3RbTBTbvbflF/exec';
 
           // тут мы пробуем получить бинарник изображения из вставки
           var imageFile;
 
-          if (image.src.startsWith("data:image")) {
+          if (image.src.startsWith('data:image')) {
             var dataUrl = image.src;
-            var byteString = atob(dataUrl.split(",")[1]);
-            var mimeString = dataUrl.split(",")[0].split(":")[1].split(";")[0];
+            var byteString = atob(dataUrl.split(',')[1]);
+            var mimeString = dataUrl.split(',')[0].split(':')[1].split(';')[0];
             var ab = new ArrayBuffer(byteString.length);
             var ia = new Uint8Array(ab);
             for (var i = 0; i < byteString.length; i++) {
               ia[i] = byteString.charCodeAt(i);
             }
-            imageFile = new File([ab], "image.png", { type: mimeString });
+            imageFile = new File([ab], 'image.png', { type: mimeString });
             // console.log(imageFile);
           } else {
             imageFile = null;
@@ -585,56 +584,56 @@
           var formattedMessage = `**Дата и время:** ${formattedDate}\n**Магазин:** ${salesPoint}\n**Нарушение:** ${category}\n**Комментарий:** ${message}\n**Оператор:** ${operator}\n**Скриншот:**\n\n`;
 
           // добавляем в data нужный контент
-          formData.append("content", formattedMessage);
-          formData.append("file", imageFile);
+          formData.append('content', formattedMessage);
+          formData.append('file', imageFile);
 
           // тут мы пробуем отправить всю эту кутерьму в дискорд
 
           fetch(webhookUrl, {
-            method: "POST",
+            method: 'POST',
             body: formData,
           })
             .then((response) => {
-              violatioinsModal.style.display = "none";
-              console.log("Сообщение успешно отправлено.");
-              showNotification("Сообщение успешно отправлено в Discord");
+              violatioinsModal.style.display = 'none';
+              console.log('Сообщение успешно отправлено.');
+              showNotification('Сообщение успешно отправлено в Discord');
             })
             .catch((error) => {
-              console.error("Ошибка при отправке сообщения:", error);
-              showNotification("Ошибка при отправке сообщения");
+              console.error('Ошибка при отправке сообщения:', error);
+              showNotification('Ошибка при отправке сообщения');
             });
 
           var formLog = new FormData();
-          formLog.append("facility", salesPoint);
-          formLog.append("violation", category);
-          formLog.append("date_time", formattedDate);
-          formLog.append("comment", message);
-          formLog.append("operator", operator);
+          formLog.append('facility', salesPoint);
+          formLog.append('violation', category);
+          formLog.append('date_time', formattedDate);
+          formLog.append('comment', message);
+          formLog.append('operator', operator);
 
           var body = JSON.stringify({
             facility: salesPoint,
             violation: category,
             date_time: formattedDate,
-            comment: message ? message : "-",
+            comment: message ? message : '-',
             operator: operator,
           });
 
           fetch(scriptURL, {
-            method: "POST",
-            redirect: "follow",
-            mode: "no-cors",
-            cache: "no-cache",
+            method: 'POST',
+            redirect: 'follow',
+            mode: 'no-cors',
+            cache: 'no-cache',
             headers: {
-              "Content-Type": "application/json",
-              "Content-Length": body.length,
-              Host: "script.google.com",
+              'Content-Type': 'application/json',
+              'Content-Length': body.length,
+              Host: 'script.google.com',
             },
             body: body,
           })
             .then((response) => response.status)
             // .then((response) => console.log(response))
-            .then((response) => console.log("Success!", response))
-            .catch((error) => console.error("Error!", error.message));
+            .then((response) => console.log('Success!', response))
+            .catch((error) => console.error('Error!', error.message));
         });
     </script>
   </body>
